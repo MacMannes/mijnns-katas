@@ -1,4 +1,4 @@
-export class carPark {
+export class CarPark {
     escape(carParkNoCars: number[][]) {
         return [];
     }
