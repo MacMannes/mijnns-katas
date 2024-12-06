@@ -1,8 +1,8 @@
 {
-  "name": "typescript-starter",
+  "name": "mijn-ns-katas",
   "version": "1.0.0",
-  "author": "André Mathlener",
-  "description": "A simple TypeScript Starter Project",
+  "author": "Team MijnNS Dojo",
+  "description": "Collection of Team MijnNS Katas",
   "keywords": [],
   "license": "MIT",
   "type": "module",
