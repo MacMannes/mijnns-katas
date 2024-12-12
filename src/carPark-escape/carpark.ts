@@ -4,7 +4,7 @@ export class CarPark {
 
         if (this.getNumberOfLevelsWithoutStairs(carPark) > 1) return ['ERR'];
 
-        const floorNumberOfOurCar = carPark.findIndex((level) => level.indexOf(2) >= 0);
+        const floorNumberOfOurCar = this.getFloorNumberOfOurCar(carPark);
         const result: string[] = [];
 
         let currentPositionOnFloor = carPark[floorNumberOfOurCar].indexOf(2);
@@ -34,6 +34,10 @@ export class CarPark {
             move: `${direction}${Math.abs(spacesToMove)}`,
             newPosition: positionToMoveTo,
         };
+    }
+
+    private getFloorNumberOfOurCar(carPark: number[][]) {
+        return carPark.findIndex((level) => level.indexOf(2) >= 0);
     }
 
     private getPositionOfStairCaseOrExit(onBottomFloor: boolean, level: number[]) {
