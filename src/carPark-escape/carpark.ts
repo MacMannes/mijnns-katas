@@ -9,7 +9,19 @@ export class CarPark {
             return [`R${spacesToMove}`];
         }
 
-        return [];
+        let result = [];
+        if (numberOfLevels === 2) {
+            const positionOfStaircase = carPark[0].indexOf(1);
+            const position = carPark[0].indexOf(2);
+            let spacesToMove = positionOfStaircase - position;
+            const direction = positionOfStaircase > position ? 'R' : 'L';
+            result.push(`${direction}${Math.abs(spacesToMove)}`);
+            result.push(`D1`);
+            const numberOfSpaces = carPark[0].length;
+            spacesToMove = numberOfSpaces - positionOfStaircase - 1;
+            result.push(`R${spacesToMove}`);
+        }
+        return result;
     }
 
     /**
