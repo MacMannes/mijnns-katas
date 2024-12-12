@@ -3,14 +3,6 @@ export class CarPark {
         if (carPark.flat().indexOf(2) === -1) return [];
 
         const numberOfLevels = carPark.length;
-
-        if (numberOfLevels === 1) {
-            const numberOfSpaces = carPark[0].length;
-            const position = carPark[0].indexOf(2);
-            const spacesToMove = numberOfSpaces - position - 1;
-            return [`R${spacesToMove}`];
-        }
-
         const result: string[] = [];
 
         //sneak preview
