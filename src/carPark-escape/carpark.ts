@@ -13,11 +13,9 @@ export class CarPark {
             if (index >= floorNumberOfOurCar) {
                 const onBottomFloor = this.isBottomFloor(index, carPark);
 
-                const positionToMoveTo = this.getPositionOfStairCaseOrExit(onBottomFloor, level);
-                const spacesToMove = positionToMoveTo - currentPositionOnFloor;
-                const direction = positionToMoveTo >= currentPositionOnFloor ? 'R' : 'L';
-                result.push(`${direction}${Math.abs(spacesToMove)}`);
-                currentPositionOnFloor = positionToMoveTo;
+                const moveResult = this.moveToStairCaseOrExit(level, currentPositionOnFloor, onBottomFloor);
+                result.push(moveResult.move);
+                currentPositionOnFloor = moveResult.newPosition;
 
                 if (!onBottomFloor) {
                     result.push(`D1`);
@@ -25,6 +23,17 @@ export class CarPark {
             }
         });
         return result;
+    }
+
+    private moveToStairCaseOrExit(level: number[], currentPosition: number, onBottomFloor: boolean): MoveResult {
+        const positionToMoveTo = this.getPositionOfStairCaseOrExit(onBottomFloor, level);
+        const spacesToMove = positionToMoveTo - currentPosition;
+        const direction = positionToMoveTo >= currentPosition ? 'R' : 'L';
+
+        return {
+            move: `${direction}${Math.abs(spacesToMove)}`,
+            newPosition: positionToMoveTo,
+        };
     }
 
     private getPositionOfStairCaseOrExit(onBottomFloor: boolean, level: number[]) {
@@ -43,3 +52,8 @@ export class CarPark {
         return carPark.filter((level) => level.indexOf(1) === -1).length;
     }
 }
+
+type MoveResult = {
+    move: string;
+    newPosition: number;
+};
