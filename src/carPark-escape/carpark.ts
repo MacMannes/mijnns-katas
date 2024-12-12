@@ -1,5 +1,14 @@
 export class CarPark {
-    escape(carParkNoCars: number[][]) {
+    escape(carPark: number[][]) {
+        const numberOfLevels = carPark.length;
+
+        if (numberOfLevels === 1) {
+            const numberOfSpaces = carPark[0].length;
+            const position = carPark[0].indexOf(2);
+            const spacesToMove = numberOfSpaces - position - 1;
+            return [`R${spacesToMove}`];
+        }
+
         return [];
     }
 

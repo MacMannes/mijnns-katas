@@ -20,8 +20,21 @@ describe('CarPark Escape Kata', () => {
                 [1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0],
             ];
+
             const esacapeRoute = carParkInstance.escape(carParkNoCars);
+
             expect(esacapeRoute).toStrictEqual([]);
+        });
+    });
+
+    describe('carOnGroundFloorScenario', () => {
+        test('Given our car is parked on the ground floor and the escape is 4 spots to the right', () => {
+            const carParkInstance = new CarPark();
+            const carParkNoCars = [[2, 0, 0, 0, 0]];
+
+            const escapeRoute = carParkInstance.escape(carParkNoCars);
+
+            expect(escapeRoute).toStrictEqual(['R4']);
         });
     });
 });
