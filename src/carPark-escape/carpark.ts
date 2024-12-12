@@ -21,6 +21,12 @@ export class CarPark {
             spacesToMove = numberOfSpaces - positionOfStaircase - 1;
             result.push(`R${spacesToMove}`);
         }
+
+        //sneak preview
+
+        carPark.forEach((level, index) => {
+            // magic
+        });
         return result;
     }
 
