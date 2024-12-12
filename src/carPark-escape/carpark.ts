@@ -16,9 +16,7 @@ export class CarPark {
                 result.push(`${direction}${Math.abs(spacesToMove)}`);
                 result.push(`D1`);
                 position = positionOfStaircase;
-            }
-
-            if (index === numberOfLevels - 1) {
+            } else {
                 const numberOfSpaces = level.length;
                 const spacesToMove = numberOfSpaces - position - 1;
                 result.push(`R${spacesToMove}`);
