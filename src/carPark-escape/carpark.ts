@@ -2,8 +2,7 @@ export class CarPark {
     escape(carPark: number[][]) {
         if (carPark.flat().indexOf(2) === -1) return [];
 
-        const numberOfLevelsWithoutStairs = carPark.filter((level) => level.indexOf(1) === -1).length;
-        if (numberOfLevelsWithoutStairs > 1) return ['ERR'];
+        if (this.getNumberOfLevelsWithoutStairs(carPark) > 1) return ['ERR'];
 
         const numberOfLevels = carPark.length;
         const result: string[] = [];
@@ -25,5 +24,9 @@ export class CarPark {
             }
         });
         return result;
+    }
+
+    private getNumberOfLevelsWithoutStairs(carPark: number[][]) {
+        return carPark.filter((level) => level.indexOf(1) === -1).length;
     }
 }
