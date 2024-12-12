@@ -11,12 +11,12 @@ export class CarPark {
 
         carPark.forEach((level, index) => {
             if (index >= floorNumberOfOurCar) {
+                const positionOfStaircase = this.isBottomFloor(index, carPark) ? level.length : level.indexOf(1);
+
                 if (this.isBottomFloor(index, carPark)) {
-                    const numberOfSpaces = level.length;
-                    const spacesToMove = numberOfSpaces - positionOnFloor - 1;
+                    const spacesToMove = positionOfStaircase - positionOnFloor - 1;
                     result.push(`R${spacesToMove}`);
                 } else {
-                    const positionOfStaircase = level.indexOf(1);
                     const spacesToMove = positionOfStaircase - positionOnFloor;
                     const direction = positionOfStaircase > positionOnFloor ? 'R' : 'L';
 
