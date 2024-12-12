@@ -21,9 +21,24 @@ describe('CarPark Escape Kata', () => {
                 [0, 0, 0, 0, 0],
             ];
 
-            const esacapeRoute = carParkInstance.escape(carParkNoCars);
+            const escapeRoute = carParkInstance.escape(carParkNoCars);
 
-            expect(esacapeRoute).toStrictEqual([]);
+            expect(escapeRoute).toStrictEqual([]);
+        });
+    });
+
+    describe('levelWithNoStairsScenario', () => {
+        test('Given our car park has a level without a staircase, we will receive an array with the value "ERR"', () => {
+            const carParkInstance = new CarPark();
+            const carParkWithMissingStairs = [
+                [1, 0, 0, 0, 2],
+                [0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0],
+            ];
+
+            const escapeRoute = carParkInstance.escape(carParkWithMissingStairs);
+
+            expect(escapeRoute).toStrictEqual(['ERR']);
         });
     });
 

@@ -12,7 +12,7 @@ Then we will receive an empty array
 
 Given our car park has a floor without stairs
 When we call the escape
-Then we will receice an error as follows [ERR]
+Then we will receive an error as follows [ERR]
 
 ### Car is on ground floor scenario
 
