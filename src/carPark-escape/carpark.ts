@@ -1,6 +1,6 @@
 export class CarPark {
     escape(carPark: number[][]) {
-        if (carPark.flat().indexOf(2) === -1) return [];
+        if (this.isOurCarInCarPark(carPark)) return [];
 
         if (this.getNumberOfLevelsWithoutStairs(carPark) > 1) return ['ERR'];
 
@@ -24,6 +24,10 @@ export class CarPark {
             }
         });
         return result;
+    }
+
+    private isOurCarInCarPark(carPark: number[][]) {
+        return carPark.flat().indexOf(2) === -1;
     }
 
     private getNumberOfLevelsWithoutStairs(carPark: number[][]) {
