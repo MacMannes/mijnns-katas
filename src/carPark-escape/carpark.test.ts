@@ -62,4 +62,20 @@ describe('CarPark Escape Kata', () => {
             expect(escapeRoute).toStrictEqual(['L4', 'D1', 'R4']);
         });
     });
+
+    describe('carOnFourthLevelScenario', () => {
+        test('Given our car is parked on the fourth floor and the stairs on each floor are not in the same position', () => {
+            const carParkInstance = new CarPark();
+            const carParkNoCars = [
+                [1, 0, 0, 0, 2],
+                [0, 0, 0, 1, 0],
+                [0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0],
+            ];
+
+            const escapeRoute = carParkInstance.escape(carParkNoCars);
+
+            expect(escapeRoute).toStrictEqual(['L4', 'D1', 'R3', 'D1', 'L2', 'D1', 'R3']);
+        });
+    });
 });
